@@ -1,0 +1,19 @@
+theme = catppuccin-mocha
+
+# font-size = 16
+
+# gtk-titlebar = false
+
+keybind = ctrl+n>shift+5=new_split:right
+keybind = ctrl+n>,=new_split:down
+keybind = ctrl+n>r=reload_config
+keybind = ctrl+n>z=toggle_split_zoom
+keybind = ctrl+n>h=goto_split:left
+keybind = ctrl+n>l=goto_split:right
+keybind = ctrl+n>j=goto_split:bottom
+keybind = ctrl+n>k=goto_split:top
+keybind = ctrl+n>c=new_tab
+
+
+# keybind = ctrl+n>n=new_window
+
