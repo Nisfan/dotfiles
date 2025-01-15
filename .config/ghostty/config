@@ -1,8 +1,18 @@
 theme = catppuccin-mocha
 
-# font-size = 16
+font-size = 15
+bold-is-bright = true
+# quick-terminal-position = center
 
-# gtk-titlebar = false
+gtk-titlebar = false
+copy-on-select = true
+adw-toolbar-style=flat
+gtk-tabs-location=bottom
+gtk-wide-tabs=false
+background-opacity=0.95
+window-save-state = always
+
+window-inherit-font-size = false
 
 keybind = ctrl+n>shift+5=new_split:right
 keybind = ctrl+n>,=new_split:down
@@ -13,7 +23,19 @@ keybind = ctrl+n>l=goto_split:right
 keybind = ctrl+n>j=goto_split:bottom
 keybind = ctrl+n>k=goto_split:top
 keybind = ctrl+n>c=new_tab
-
+keybind = super+shift+plus=increase_font_size:1
+keybind = super+shift+minus=decrease_font_size:1
+keybind = ctrl+n>c=new_tab
+keybind = ctrl+n>1=goto_tab:1
+keybind = ctrl+n>2=goto_tab:2
+keybind = ctrl+n>3=goto_tab:3
+keybind = ctrl+n>4=goto_tab:4
+keybind = ctrl+n>5=goto_tab:5
+keybind = ctrl+n>6=goto_tab:6
+keybind = ctrl+n>7=goto_tab:7
+keybind = ctrl+n>8=goto_tab:8
+keybind = ctrl+n>9=goto_tab:9
+keybind = ctrl+n>q=toggle_quick_terminal
 
 # keybind = ctrl+n>n=new_window
 
