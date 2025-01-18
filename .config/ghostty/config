@@ -1,4 +1,4 @@
-theme = catppuccin-mocha
+theme = dark:catppuccin-frappe,light:catppuccin-latte
 
 font-size = 15
 bold-is-bright = true
@@ -9,7 +9,7 @@ copy-on-select = true
 adw-toolbar-style=flat
 gtk-tabs-location=bottom
 gtk-wide-tabs=false
-background-opacity=0.95
+# background-opacity=0.96
 window-save-state = always
 
 window-inherit-font-size = false
@@ -36,6 +36,7 @@ keybind = ctrl+n>7=goto_tab:7
 keybind = ctrl+n>8=goto_tab:8
 keybind = ctrl+n>9=goto_tab:9
 keybind = ctrl+n>q=toggle_quick_terminal
+keybind = global:ctrl+t=toggle_quick_terminal
 
 # keybind = ctrl+n>n=new_window
 

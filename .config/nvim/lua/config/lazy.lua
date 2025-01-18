@@ -21,7 +21,6 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-vim.g.termguicolors = true
 
 local opt = vim.opt
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
@@ -49,22 +48,31 @@ opt.splitright = true
 opt.splitbelow = true
 opt.cursorline = true
 
--- Setup lazy.nvim
+-- Setup lazy.n
 require("lazy").setup({
 	spec = {
 		-- import your plugins
 		{ import = "plugins" },
 		{
-			"folke/tokyonight.nvim",
-			lazy = false, -- make sure we load this during startup if it is your main colorscheme
-			priority = 1000, -- make sure to load this before all the other start plugins
+			"catppuccin/nvim",
+			name = "catppuccin",
+			lazy = false,
+			priority = 1000,
 			init = function()
-				-- load the colorscheme here
-				-- vim.cmd([[colorscheme tokyonight]])
-				vim.cmd.colorscheme("tokyonight-night")
-				vim.cmd.hi("Comment gui=none")
+				vim.cmd.colorscheme("catppuccin-frappe")
 			end,
 		},
+		-- {
+		-- 	"folke/tokyonight.nvim",
+		-- 	lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		-- 	priority = 1000, -- make sure to load this before all the other start plugins
+		-- 	init = function()
+		-- 		-- load the colorscheme here
+		-- 		-- vim.cmd([[colorscheme tokyonight]])
+		-- 		vim.cmd.colorscheme("tokyonight-night")
+		-- 		vim.cmd.hi("Comment gui=none")
+		-- 	end,
+		-- },
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 	},
@@ -90,9 +98,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-vim.cmd([[
-  highlight Normal guibg=none
-  highlight NonText guibg=none
-  highlight Normal ctermbg=none
-  highlight NonText ctermbg=none
-]])
+-- vim.cmd([[
+--   highlight Normal guibg=none
+--   highlight NonText guibg=none
+--   highlight Normal ctermbg=none
+--   highlight NonText ctermbg=none
+-- ]])
+vim.o.termguicolors = true
