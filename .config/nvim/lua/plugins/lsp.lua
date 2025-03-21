@@ -8,7 +8,6 @@ return {
 			"saghen/blink.cmp",
 			"stevearc/conform.nvim",
 		},
-
 		-- example using `opts` for defining servers
 		-- opts = {
 		--   servers = {
@@ -147,9 +146,9 @@ return {
 			-- end
 
 			local lspconfig = require("lspconfig")
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities =
-				vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities(capabilities))
+			-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+			-- capabilities =
+			-- 	vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities(capabilities))
 
 			local tsserver_inlay_hints_settings = {
 				includeInlayEnumMemberValueHints = true,
@@ -187,19 +186,19 @@ return {
 						["language_server_completion.trim_leading_dollar"] = true,
 					},
 				},
-				emmet_language_server = {
-					filetypes = {
-						"html",
-						"css",
-						"javascript",
-						"typescript",
-						"javascriptreact",
-						"typescriptreact",
-						"php",
-						"blade",
-						"php_only",
-					},
-				},
+				-- emmet_language_server = {
+				-- 	filetypes = {
+				-- 		"html",
+				-- 		"css",
+				-- 		"javascript",
+				-- 		"typescript",
+				-- 		"javascriptreact",
+				-- 		"typescriptreact",
+				-- 		"php",
+				-- 		"blade",
+				-- 		"php_only",
+				-- 	},
+				-- },
 				cssls = {},
 				html = {},
 				jsonls = {
@@ -221,10 +220,6 @@ return {
 				},
 				marksman = {},
 				yamlls = {},
-				--
-
-				["sonarlint-language-server"] = {},
-
 				lua_ls = {
 					settings = {
 						Lua = {
@@ -238,17 +233,22 @@ return {
 					},
 				},
 			}
+
+			local ensure_installed = vim.tbl_keys(servers or {})
+			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+
 			-- for server, config in pairs(opts.servers) do
 			-- local capabilities = require("blink.cmp").get_lsp_capabilities()
 			--   lspconfig[server].setup(config);
 			-- end
 			require("mason-lspconfig").setup({
+				automatic_installation = false,
 				handlers = {
 					function(server_name)
 						-- require("lspconfig")[server_name].setup({})
 						local server = servers[server_name] or {}
 
-						server.capabilities = capabilities
+						server.capabilities = require("blink.cmp").get_lsp_capabilities(server.capabilities)
 						lspconfig[server_name].setup(server)
 					end,
 				},

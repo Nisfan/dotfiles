@@ -5,7 +5,7 @@ return {
 		dependencies = "rafamadriz/friendly-snippets",
 
 		-- use a release tag to download pre-built binaries
-		version = "v0.*",
+		version = "*",
 		-- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
 		-- build = 'cargo build --release',
 		-- If you use nix, you can build from source using latest nightly rust with:
@@ -31,11 +31,15 @@ return {
 					auto_show = true,
 					auto_show_delay_ms = 500,
 				},
+				accept = { auto_brackets = { enabled = false } },
+				list = { selection = { preselect = true, auto_insert = true } },
 				menu = {
+					auto_show = true,
 					draw = {
 						columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
 					},
 				},
+				ghost_text = { show_with_menu = false },
 			},
 
 			appearance = {
@@ -53,7 +57,6 @@ return {
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
 				-- optionally disable cmdline completions
-				cmdline = {},
 			},
 
 			-- experimental signature help support
