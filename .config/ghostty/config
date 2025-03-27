@@ -11,6 +11,7 @@ gtk-tabs-location=bottom
 gtk-wide-tabs=false
 # background-opacity=0.96
 window-save-state = always
+scrollback-limit=512000
 
 window-inherit-font-size = false
 
