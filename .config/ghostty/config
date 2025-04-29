@@ -8,10 +8,10 @@ gtk-titlebar = false
 copy-on-select = true
 adw-toolbar-style=flat
 gtk-tabs-location=bottom
-gtk-wide-tabs=false
+# gtk-wide-tab = false
 # background-opacity=0.96
 window-save-state = always
-scrollback-limit=512000
+scrollback-limit = 4294967295
 
 window-inherit-font-size = false
 
